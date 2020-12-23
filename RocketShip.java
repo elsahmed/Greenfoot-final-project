@@ -31,13 +31,18 @@ public class RocketShip extends Actor
         {
             move(3);
         }
-        //else if(Greenfoot.isKeyDown("down")) // move backwards
-        //{
-        //    move(-3);
-        //}
+        else if(Greenfoot.isKeyDown("escape")) // move forward
+        {
+            Greenfoot.setWorld(new TitleScreen());
+        }
         hit();
     }    
-    
+   
+    /**
+     * When the rocket has come in contact with the 
+     * metoroid than the object will be removed from the world.
+     * Once object is removed the score will also increase by 1.
+     */
     public void hit()
     {
         if(isTouching(Meteoroid.class))
