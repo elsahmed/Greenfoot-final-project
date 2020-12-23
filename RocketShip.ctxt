@@ -5,5 +5,6 @@ comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ rocketShip\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
-comment2.target=hit()
+comment2.target=void\ hit()
+comment2.text=\r\n\ When\ the\ rocket\ has\ come\ in\ contact\ with\ the\ \r\n\ metoroid\ than\ the\ object\ will\ be\ removed\ from\ the\ world.\r\n\ Once\ object\ is\ removed\ the\ score\ will\ also\ increase\ by\ 1.\r\n
 numComments=3
