@@ -17,13 +17,16 @@ public class Meteoroid extends Actor
     public void act() 
     {
         // Add your action code here.
-        int x = getX();
-        int y = getY()+2;
-        setLocation(x, y);
-        if(y > 600)
+        MyWorld world = (MyWorld) getWorld();
+        if (!world.isGameOver()) 
         {
-            MyWorld world = (MyWorld) getWorld(); 
-            world.gameOver(); // calls gameOver sign 
-        } 
-    }
+            int x = getX();
+            int y = getY()+2;
+            setLocation(x, y);
+            if(y > world.getHeight())
+            {
+                world.gameOver(); // calls gameOver sign 
+            }            
+        }
+    }       
 }

@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    public int score = 0;
-    Label scoreLabel;
+    private int score = 0;
+    private Label scoreLabel;
+    //Label test;
+    private ThrowMeteoroids throwM;
+    private boolean bGameOver= false;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -17,14 +20,18 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        super(1000, 600, 1, false); 
+        super(1000, 600, 1); 
         RocketShip rocket = new RocketShip();
         addObject(rocket, 500, 300);
         
         scoreLabel = new Label(0,80);
         addObject(scoreLabel, 50,50);
         
-        createMeteoroid();
+        //test = new Label(0,80);
+        //addObject(test, 500,50);
+        
+        throwM = new ThrowMeteoroids(100);
+        addObject(throwM, 0, 0);
     }
     
     /**
@@ -36,15 +43,10 @@ public class MyWorld extends World
         scoreLabel.setValue(score);
     }
     
-    /**
-     * creates a new meteoroid every time one is hit  
-     */
-    public void createMeteoroid()
-    {
-        Meteoroid meteoroid = new Meteoroid();
-        int x = Greenfoot.getRandomNumber(600);
-        addObject(meteoroid, x, 0);
-    }
+    //public void test(int val)
+    //{        
+    //    test.setValue(val);
+    //}
     
     /**
      * shows the 'game over' sign 
@@ -53,5 +55,21 @@ public class MyWorld extends World
     {
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 500, 300);
+        Label gameOverLabel2 = new Label("press [esc] to start new game", 40);
+        gameOverLabel2.setFillColor(Color.YELLOW);
+        addObject(gameOverLabel2, 500, 350);
+        removeObject(this.throwM);
+        this.bGameOver=true;
+        
+    }
+    
+    public ThrowMeteoroids getMeteoroids()
+    {
+        return this.throwM;
+    }
+    
+     public boolean isGameOver()
+    {
+        return this.bGameOver;
     }
 }
