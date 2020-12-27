@@ -9,7 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class RocketShip extends Actor
 {
-    private int fire = 0;
+    //private int ammo = 10;
+    private int fire = 0;    
+    private int hit = 0;
     /**
      * Act - do whatever the rocketShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,21 +22,21 @@ public class RocketShip extends Actor
         if ( !world.isGameOver()) {
             if (Greenfoot.isKeyDown("a")) // excelerator forward
             {
-                move(5);
+                move(7);
             }
-            else if (Greenfoot.isKeyDown("right")) // turns right
+            if (Greenfoot.isKeyDown("right")) // turns right
             {
                 turn(5);
             }
-            else if (Greenfoot.isKeyDown("left")) // turns left
+            if (Greenfoot.isKeyDown("left")) // turns left
             {
                 turn(355);
             }
-            else if(Greenfoot.isKeyDown("up")) // move forward
+            if(Greenfoot.isKeyDown("up")) // move forward
             {
                 move(3);
             }
-            else if(Greenfoot.isKeyDown("space")) // shoot bullet
+            if(Greenfoot.isKeyDown("space")) // shoot bullet
             {
                 this.fire++;
                 fireBullet();                
@@ -45,7 +47,6 @@ public class RocketShip extends Actor
         {
            Greenfoot.setWorld(new TitleScreen());
         }
-
     }    
    
     /**
@@ -57,21 +58,31 @@ public class RocketShip extends Actor
     {
         if(isTouching(Meteoroid.class))
         {
-            //removeTouching(Meteoroid.class);
+            removeTouching(Meteoroid.class);
+            if(this.hit == 5)
+            {
+                MyWorld world = (MyWorld) getWorld();
+                world.gameOver();
+            }
+            this.hit++;
+        }
+        if(isTouching(DropAmmo.class))
+        {
+            removeTouching(DropAmmo.class);
             MyWorld world = (MyWorld) getWorld();
-            world.gameOver();
-            //world.increaseScore();
+            world.updateBullets(5);
         }
     }
     
     public void fireBullet()
     {
-        if(this.fire == 10) // delay bullet shots
+        MyWorld world = (MyWorld) getWorld();
+        if(this.fire == 10 && world.ammo > 0) // delay bullet shots
         {
             Bullet bullet = new Bullet(15, getRotation());
-            MyWorld world = (MyWorld) getWorld();
             world.addObject(bullet, getX(), getY());
             this.fire=0;
+            world.updateBullets(-1);
         }
     }
 }

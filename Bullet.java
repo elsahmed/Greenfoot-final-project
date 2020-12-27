@@ -9,8 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
     private int speed;
-    private int rotation;
-    
+    private int rotation;    
     public Bullet(int speed, int rot)
     {
         this.speed = speed;

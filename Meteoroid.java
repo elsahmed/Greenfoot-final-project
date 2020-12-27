@@ -21,10 +21,11 @@ public class Meteoroid extends Actor
         if (!world.isGameOver()) 
         {
             int x = getX();
-            int y = getY()+2;
+            int y = getY()+1;
             setLocation(x, y);
-            if(y > world.getHeight())
+            if(y > world.getHeight()-5 && world.ammo == 0)
             {
+                world.removeObject(this);
                 world.gameOver(); // calls gameOver sign 
             }            
         }
