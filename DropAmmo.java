@@ -8,6 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DropAmmo extends Actor
 {
+    GreenfootImage image = new GreenfootImage("images/gold-ball.png");    
+    public DropAmmo()
+    {
+        setImage(image);
+        image.scale(50,50);
+    }
     /**
      * Act - do whatever the DropAmmo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

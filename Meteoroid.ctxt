@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Meteoroid
 comment0.text=\r\n\ object\ that\ is\ falling\ from\ the\ top\ of\ the\ world.\r\n\ player\ needs\ to\ hit\ this\ object\ to\ score\ a\ point,\r\n\ before\ object\ reaches\ the\ end\ of\ the\ world\ screen.\r\n\ \r\n\ @author\ Elsa\ \r\n\ @version\ December\ 2020\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Meteoroid\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment1.params=speed
+comment1.target=Meteoroid(int)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Meteoroid\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=3

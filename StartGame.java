@@ -17,7 +17,7 @@ public class StartGame extends Actor
         // Add your action code here.
         if(Greenfoot.isKeyDown("space"))
         {
-            Greenfoot.setWorld(new MyWorld());
+            Greenfoot.setWorld(new MyWorld());            
         }
         else if(Greenfoot.isKeyDown("F1"))
         {

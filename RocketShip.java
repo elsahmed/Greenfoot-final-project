@@ -11,7 +11,14 @@ public class RocketShip extends Actor
 {
     //private int ammo = 10;
     private int fire = 0;    
-    private int hit = 0;
+    protected int hit = 0;
+    final static String KEY_A = "a";
+    final static String KEY_RIGHT = "right";
+    final static String KEY_LEFT = "left";
+    final static String KEY_UP = "UP";
+    final static String KEY_SPACE = "space";
+    final static String KEY_ESCAPE = "escape";
+    
     /**
      * Act - do whatever the rocketShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,30 +27,32 @@ public class RocketShip extends Actor
     {
         MyWorld world = (MyWorld) getWorld();
         if ( !world.isGameOver()) {
-            if (Greenfoot.isKeyDown("a")) // excelerator forward
+            if (Greenfoot.isKeyDown(KEY_A)) // excelerator forward
             {
                 move(7);
             }
-            if (Greenfoot.isKeyDown("right")) // turns right
+            if (Greenfoot.isKeyDown(KEY_RIGHT)) // turns right
             {
                 turn(5);
             }
-            if (Greenfoot.isKeyDown("left")) // turns left
+            if (Greenfoot.isKeyDown(KEY_LEFT)) // turns left
             {
                 turn(355);
             }
-            if(Greenfoot.isKeyDown("up")) // move forward
+            if(Greenfoot.isKeyDown(KEY_UP)) // move forward
             {
                 move(3);
             }
-            if(Greenfoot.isKeyDown("space")) // shoot bullet
-            {
+            if(Greenfoot.isKeyDown(KEY_SPACE)) // shoot bullet
+            { 
                 this.fire++;
                 fireBullet();                
             }
             hit();
+            //world.test(world.TOTLIVES-this.hit);            
+            //world.updateHealth(this.lives-this.hit);
         }
-        if(Greenfoot.isKeyDown("escape")) // move forward
+        if(Greenfoot.isKeyDown(KEY_ESCAPE)) // move forward
         {
            Greenfoot.setWorld(new TitleScreen());
         }
@@ -56,12 +65,14 @@ public class RocketShip extends Actor
      */
     public void hit()
     {
+        MyWorld world = (MyWorld) getWorld();
         if(isTouching(Meteoroid.class))
         {
-            removeTouching(Meteoroid.class);
-            if(this.hit == 5)
-            {
-                MyWorld world = (MyWorld) getWorld();
+            removeTouching(Meteoroid.class);   
+            //world.updateHealth(this.lives-this.hit);
+            //world.test(this.lives-this.hit);
+            if(this.hit == world.TOTLIVES-1)
+            {                
                 world.gameOver();
             }
             this.hit++;
@@ -69,7 +80,6 @@ public class RocketShip extends Actor
         if(isTouching(DropAmmo.class))
         {
             removeTouching(DropAmmo.class);
-            MyWorld world = (MyWorld) getWorld();
             world.updateBullets(5);
         }
     }

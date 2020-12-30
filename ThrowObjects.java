@@ -47,8 +47,8 @@ public class ThrowObjects extends Actor
     
     public void createMeteoroid(int x, int y)
     {
-        Meteoroid meteoroid = new Meteoroid();
         MyWorld world = (MyWorld) getWorld();
+        Meteoroid meteoroid = new Meteoroid(world.level);
         world.addObject(meteoroid, x, y);
     }
     
