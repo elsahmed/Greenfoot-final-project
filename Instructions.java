@@ -26,7 +26,7 @@ public class Instructions extends World
         Label s1 = new Label("1. Press 'UP' arrow key to move the rocket forward", 35);
         addObject(s1, 345, 160);
         
-        Label s2 = new Label("2. Press 'LEFT' or 'RIGHT arrow key to turn the rocket the direction", 35);
+        Label s2 = new Label("2. Press 'LEFT' or 'RIGHT' arrow key to turn the rocket the direction", 35);
         addObject(s2, 455, 200);
         
         Label s3 = new Label("3. Press 'X' AND 'UP' arrow key to accelerate the rocket forward", 35);

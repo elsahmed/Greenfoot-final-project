@@ -72,10 +72,16 @@ public class RocketShip extends Actor
         {
             removeTouching(Meteoroid.class); 
             
+            GreenfootImage crack = new GreenfootImage("images/rocket-cracked" + (hit) + ".png");
+            setImage(crack);
             //world.updateHealth(this.lives-this.hit);
             //world.test(this.lives-this.hit);
+            Greenfoot.playSound("sounds/rocketExplosion.wav");            
             if(this.hit == world.TOTLIVES-1)
             {                
+                getImage().setTransparency(0);
+                rocketExplode rocketExp = new rocketExplode(15);
+                world.addObject(rocketExp, getX(), getY());
                 world.gameOver();
             }
             this.hit++;

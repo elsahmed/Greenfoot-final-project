@@ -8,13 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Health extends Actor
 {
-    GreenfootImage heart = new GreenfootImage("images/herz.png"); 
+    GreenfootImage heart = new GreenfootImage("images/rocket.png"); 
     private int liveID;
     public Health(int liveID)
     {
         this.liveID = liveID;
+        turn(270);
         setImage(heart);
-        heart.scale(30,30);        
+        heart.scale(50,30);        
     }
     /**
      * Act - do whatever the Health wants to do. This method is called whenever

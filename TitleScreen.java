@@ -20,8 +20,8 @@ public class TitleScreen extends World
         super(1000, 600, 1); 
         //MyWorld world = (MyWorld) getWorld();     
         GreenfootImage imageRocket = new GreenfootImage("images/rocket.png");
-        imageRocket.scale(150,100);
-        getBackground().drawImage(imageRocket,450, 150);
+        imageRocket.scale(240,120);
+        getBackground().drawImage(imageRocket,400, 150);
         //setImage(rocket);
         //addObject(rocket, 500, 300);
         start();
@@ -30,7 +30,7 @@ public class TitleScreen extends World
     public void start() 
     {
         rocketAnimation rocket = new rocketAnimation();
-        addObject(rocket, 200, 400);
+        addObject(rocket, 100, 450);
         
         Label start = new Label("SPACE BATTLE", 100);
         addObject(start, 500, 300);

@@ -49,8 +49,8 @@ public class MyWorld extends World
         
         showFullLives();
         
-        test = new Label("",80);
-        addObject(test, 500,50);
+        //test = new Label("",80);
+        //addObject(test, 500,50);
     }
     
     /**
@@ -92,7 +92,7 @@ public class MyWorld extends World
     public void showFullLives()
     {                        
         int x = 830;
-        int y = 575;
+        int y = 570;
         for(int i = 1; i <= this.TOTLIVES; i++)
         {
             Health h = new Health(i);
