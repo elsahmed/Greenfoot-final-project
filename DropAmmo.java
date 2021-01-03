@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DropAmmo extends Actor
 {
-    GreenfootImage image = new GreenfootImage("images/gold-ball.png");    
+    GreenfootImage image = new GreenfootImage("images/gold-ball.png");
     public DropAmmo()
     {
         setImage(image);

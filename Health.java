@@ -8,14 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Health extends Actor
 {
-    GreenfootImage image = new GreenfootImage("images/herz.png"); 
+    GreenfootImage heart = new GreenfootImage("images/herz.png"); 
     private int liveID;
     public Health(int liveID)
     {
         this.liveID = liveID;
-        setImage(image);
-        image.scale(30,30);
-        
+        setImage(heart);
+        heart.scale(30,30);        
     }
     /**
      * Act - do whatever the Health wants to do. This method is called whenever
@@ -24,22 +23,16 @@ public class Health extends Actor
     public void act() 
     {
         // Add your action code here. getX(), getY()
-        updateLive();
-        
+        updateLive();        
     }  
     
     public void updateLive()
     {                        
         //int lives = hit;
-        MyWorld world = (MyWorld) getWorld();
-
-        if ((world.TOTLIVES-world.rocket.hit)<=this.liveID){
-            setLocation(getX(), getY());
-        }
-        if (this.liveID==(world.TOTLIVES-world.rocket.hit+1)){
+        MyWorld world = (MyWorld) getWorld();        
+        if (this.liveID==(world.TOTLIVES-world.rocket.hit+1))
+        {
             world.removeObject(this);
         } 
-        
-           
     } 
 }

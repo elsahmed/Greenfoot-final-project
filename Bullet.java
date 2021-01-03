@@ -38,6 +38,7 @@ public class Bullet extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Meteoroid.class))
         {
+            Greenfoot.playSound("sounds/explosion.wav");
             removeTouching(Meteoroid.class);
             world.increaseScore();
             world.removeObject(this);    

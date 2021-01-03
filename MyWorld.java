@@ -16,7 +16,7 @@ public class MyWorld extends World
     private Label ammoLabel;
     private Label levelLabel;
     private Label scoreLabel;
-    Label test;
+    protected Label test;
     private ThrowObjects throwM;  
     public RocketShip rocket;
     
@@ -62,7 +62,7 @@ public class MyWorld extends World
         scoreLabel.setValue(score);
         if(this.score >= 25 && this.level == 1)
          {
-             this.level = 2;
+            this.level = 2;
             this.ammo += 10;
         }
         else if(score >= 50 && level == 2)
@@ -88,8 +88,7 @@ public class MyWorld extends World
         ammo+= val;
         ammoLabel.setValue(ammo);
     }    
-    
-        
+            
     public void showFullLives()
     {                        
         int x = 830;

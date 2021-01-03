@@ -26,7 +26,7 @@ public class ThrowObjects extends Actor
         // Add your action code here.
         if(drop == 0)
         {
-            drop = Greenfoot.getRandomNumber(500);            
+            drop = Greenfoot.getRandomNumber(499)+1;            
         }
         if(pause % speed == 0)
         {

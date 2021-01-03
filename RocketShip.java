@@ -12,12 +12,13 @@ public class RocketShip extends Actor
     //private int ammo = 10;
     private int fire = 0;    
     protected int hit = 0;
-    final static String KEY_A = "a";
+    final static String KEY_X = "x";
     final static String KEY_RIGHT = "right";
     final static String KEY_LEFT = "left";
     final static String KEY_UP = "UP";
     final static String KEY_SPACE = "space";
     final static String KEY_ESCAPE = "escape";
+    final static int BulletPack = 5;
     
     /**
      * Act - do whatever the rocketShip wants to do. This method is called whenever
@@ -27,7 +28,8 @@ public class RocketShip extends Actor
     {
         MyWorld world = (MyWorld) getWorld();
         if ( !world.isGameOver()) {
-            if (Greenfoot.isKeyDown(KEY_A)) // excelerator forward
+            
+            if (Greenfoot.isKeyDown(KEY_X)) // excelerator forward
             {
                 move(7);
             }
@@ -68,7 +70,8 @@ public class RocketShip extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Meteoroid.class))
         {
-            removeTouching(Meteoroid.class);   
+            removeTouching(Meteoroid.class); 
+            
             //world.updateHealth(this.lives-this.hit);
             //world.test(this.lives-this.hit);
             if(this.hit == world.TOTLIVES-1)
@@ -80,19 +83,20 @@ public class RocketShip extends Actor
         if(isTouching(DropAmmo.class))
         {
             removeTouching(DropAmmo.class);
-            world.updateBullets(5);
+            world.updateBullets(BulletPack);
         }
     }
     
     public void fireBullet()
     {
         MyWorld world = (MyWorld) getWorld();
-        if(this.fire == 10 && world.ammo > 0) // delay bullet shots
+        if(this.fire >= 7 && world.ammo > 0) // delay bullet shots = 7
         {
             Bullet bullet = new Bullet(15, getRotation());
             world.addObject(bullet, getX(), getY());
             this.fire=0;
             world.updateBullets(-1);
+            Greenfoot.playSound("sounds/firebullet.wav");
         }
     }
 }
