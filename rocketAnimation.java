@@ -29,7 +29,7 @@ public class rocketAnimation extends Actor
        }
        else if (getY() < gap || getX() < gap ||  getY() > world.getHeight()-gap || getX() > world.getWidth()-gap)
        {           
-           turn(Greenfoot.getRandomNumber(360));
+           turn(Greenfoot.getRandomNumber(180));
            move(10);
        }
     }

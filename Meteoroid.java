@@ -26,7 +26,7 @@ public class Meteoroid extends Actor
         if (!world.isGameOver()) 
         {
             int x = getX();
-            int y = getY()+this.speed;
+            int y = getY() + this.speed;
             setLocation(x, y);
             if(y > world.getHeight()-5 && world.ammo == 0)
             {

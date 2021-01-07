@@ -12,7 +12,7 @@ public class DropAmmo extends Actor
     public DropAmmo()
     {
         setImage(image);
-        image.scale(50,50);
+        image.scale(35,35);
     }
     /**
      * Act - do whatever the DropAmmo wants to do. This method is called whenever

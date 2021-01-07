@@ -60,6 +60,12 @@ public class MyWorld extends World
     {
         score++;
         scoreLabel.setValue(score);
+        if(this.score % 25 == 0)
+        {
+            this.level = (this.score / 25) + 1;
+            this.ammo += 5;
+        }
+        /*
         if(this.score >= 25 && this.level == 1)
          {
             this.level = 2;
@@ -79,7 +85,8 @@ public class MyWorld extends World
         {
             this.level = 5; 
             this.ammo += 20;
-        }     
+        }   
+        */
         levelLabel.setValue("LEVEL " + level);
     }
     

@@ -43,7 +43,7 @@ public class RocketShip extends Actor
             }
             if(Greenfoot.isKeyDown(KEY_UP)) // move forward
             {
-                move(3);
+                move(5);
             }
             if(Greenfoot.isKeyDown(KEY_SPACE)) // shoot bullet
             { 
