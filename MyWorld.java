@@ -8,10 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    final static int CHANGE_LEVEL_BY_SCORE = 25;
+    final static int BONUS_BULLET = 50;
     final static int TOTLIVES = 5;
     protected int ammo = 10;
-    private int score = 0;
     protected int level = 1;
+    private int score = 0;
     private boolean bGameOver= false;
     private Label ammoLabel;
     private Label levelLabel;
@@ -60,33 +62,14 @@ public class MyWorld extends World
     {
         score++;
         scoreLabel.setValue(score);
-        if(this.score % 25 == 0)
+        if(this.score % CHANGE_LEVEL_BY_SCORE == 0)
         {
-            this.level = (this.score / 25) + 1;
-            this.ammo += 5;
-        }
-        /*
-        if(this.score >= 25 && this.level == 1)
-         {
-            this.level = 2;
-            this.ammo += 10;
-        }
-        else if(score >= 50 && level == 2)
-        {
-            this.level = 3;
-            this.ammo += 15;
-        }
-        else if(score >= 75 && level == 3)
-        {
-            this.level = 4;
-            this.ammo += 17;
-        }
-        else if(score >= 100 && level == 4)
-        {
-            this.level = 5; 
-            this.ammo += 20;
-        }   
-        */
+            this.level = (this.score / CHANGE_LEVEL_BY_SCORE) + 1;
+            if (this.level % 5 == 0)
+            {
+                this.ammo += BONUS_BULLET * ((this.level / 5) + 1);
+            }
+        }        
         levelLabel.setValue("LEVEL " + level);
     }
     

@@ -9,16 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class RocketShip extends Actor
 {
-    //private int ammo = 10;
     private int fire = 0;    
     protected int hit = 0;
+    final static int BULLET_PACK = 5;
     final static String KEY_X = "x";
     final static String KEY_RIGHT = "right";
     final static String KEY_LEFT = "left";
     final static String KEY_UP = "UP";
     final static String KEY_SPACE = "space";
-    final static String KEY_ESCAPE = "escape";
-    final static int BulletPack = 5;
+    final static String KEY_ESCAPE = "escape";    
     
     /**
      * Act - do whatever the rocketShip wants to do. This method is called whenever
@@ -27,8 +26,7 @@ public class RocketShip extends Actor
     public void act() 
     {
         MyWorld world = (MyWorld) getWorld();
-        if ( !world.isGameOver()) {
-            
+        if ( !world.isGameOver()) {            
             if (Greenfoot.isKeyDown(KEY_X)) // excelerator forward
             {
                 move(7);
@@ -51,8 +49,6 @@ public class RocketShip extends Actor
                 fireBullet();                
             }
             hit();
-            //world.test(world.TOTLIVES-this.hit);            
-            //world.updateHealth(this.lives-this.hit);
         }
         if(Greenfoot.isKeyDown(KEY_ESCAPE)) // move forward
         {
@@ -70,11 +66,9 @@ public class RocketShip extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Meteoroid.class))
         {
-            removeTouching(Meteoroid.class); 
-            
+            removeTouching(Meteoroid.class);             
             GreenfootImage crack = new GreenfootImage("images/rocket-cracked" + (hit) + ".png");
             setImage(crack);
-            //world.updateHealth(this.lives-this.hit);
             //world.test(this.lives-this.hit);
             Greenfoot.playSound("sounds/rocketExplosion.wav");            
             if(this.hit == world.TOTLIVES-1)
@@ -89,7 +83,7 @@ public class RocketShip extends Actor
         if(isTouching(DropAmmo.class))
         {
             removeTouching(DropAmmo.class);
-            world.updateBullets(BulletPack);
+            world.updateBullets(BULLET_PACK);
         }
     }
     
