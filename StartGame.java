@@ -1,36 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartGame here.
+ * controls what screen are to be displayed 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed
+ * @version December 2020
  */
 public class StartGame extends Actor
 {
     /**
-     * Act - do whatever the StartGame wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * controls whet screens are displayed
      */
     public void act() 
     {
-        // Add your action code here.
         if(Greenfoot.isKeyDown("space"))
         {
-            Greenfoot.setWorld(new MyWorld());            
+            Greenfoot.setWorld(new MyWorld()); // displays game screen           
         }
         else if(Greenfoot.isKeyDown("F1"))
         {
-            Greenfoot.setWorld(new Instructions());
+            Greenfoot.setWorld(new Instructions()); // displays instructions screen
         } 
         else if(Greenfoot.isKeyDown("escape"))
         {
-            Greenfoot.setWorld(new TitleScreen());
-        } 
-        /*else if (Greenfoot.isKeyDown("") && (!Greenfoot.isKeyDown("space") || !Greenfoot.isKeyDown("F1")))
-        {
-            TitleScreen ts = (TitleScreen) getWorld(); 
-            ts.invalidKey(); // calls gameOver sign
-        }*/
+            Greenfoot.setWorld(new TitleScreen()); // displays title screen
+        }         
     }    
 }

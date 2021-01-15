@@ -1,15 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bullet here.
+ * Bullets stored in rocket and can destroy Meteoroids
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed 
+ * @version December 2020
  */
 public class Bullet extends Actor
 {
-    private int speed;
-    private int rotation;    
+    private int speed; // speed bullet traveld
+    private int rotation; // rotation to turn
+    
+    /**
+     * Bullet class constructor sets value for speed and rotation for the bullet
+     */
     public Bullet(int speed, int rot)
     {
         this.speed = speed;
@@ -17,13 +21,13 @@ public class Bullet extends Actor
     }
     
     /**
-     * Act - do whatever the Bullet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Bullet travel at the given speed and direction it is thrown
      */    
     public void act() 
     {
         // Add your action code here.
         MyWorld world = (MyWorld) getWorld();
+        //sets bullet and moves in direction thrown
         if (!world.isGameOver()) 
         {            
             setLocation(getX(), getY());
@@ -33,16 +37,20 @@ public class Bullet extends Actor
         }        
     }    
     
+    /**
+     * removed meteoroid when comes in contact
+     */
     public void destroy()
     {
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Meteoroid.class))
         {
-            Greenfoot.playSound("sounds/explosion.wav");
+            Greenfoot.playSound("sounds/explosion.wav"); //plays sound
             removeTouching(Meteoroid.class);
-            world.increaseScore();
-            world.removeObject(this);    
+            world.increaseScore(); //inscreases score
+            world.removeObject(this); //removed object after destroyed
         } 
+        // if not touching meteoroid, removed after end of the screen 
         else if( getY() < 1 || getX() < 1 ||  getY() > world.getHeight()-5 || getX() > world.getWidth()-5)
         {            
             world.removeObject(this);

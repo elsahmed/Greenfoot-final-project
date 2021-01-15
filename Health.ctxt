@@ -1,11 +1,12 @@
 #BlueJ class context
 comment0.target=Health
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Health\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Display\ the\ number\ of\ live\ the\ rocket\ has\ left\r\n\ \r\n\ @author\ Elsa\ Ahmed\r\n\ @version\ December\ 2020\r\n
 comment1.params=liveID
 comment1.target=Health(int)
+comment1.text=\r\n\ Health\ class\ contructor\ sets\ id\ number\ of\ live\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Health\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ updateLive()
+comment3.text=\r\n\ updates\ the\ number\ of\ lives\ to\ be\ displayed\r\n
 numComments=4

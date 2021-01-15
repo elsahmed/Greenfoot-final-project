@@ -3,34 +3,34 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class rocketAnimation here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed 
+ * @version January 2021
  */
 public class rocketAnimation extends Actor
 {    
-
     /**
-     * Act - do whatever the rocketAnimation wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * runs the animations of the rocket 
      */
     public void act() 
-    {
-        // Add your action code here.        
+    {      
         animation();
     }   
        
-    public void animation()
+    /**
+     * rocket moves forward untill hits the end of the screen, then turns 60 degrees 
+     */
+    private void animation()
     {
        int gap =10;
        TitleScreen world = (TitleScreen) getWorld();
        if (!(getY() < gap || getX() < gap ||  getY() > world.getHeight()-gap || getX() > world.getWidth()-gap))
        {
-           move(5);
+           move(5);//speed the rocket moves
        }
        else if (getY() < gap || getX() < gap ||  getY() > world.getHeight()-gap || getX() > world.getWidth()-gap)
        {           
-           turn(Greenfoot.getRandomNumber(180));
-           move(10);
+           turn(60);//(Greenfoot.getRandomNumber(180));
+           move(5); //speed the rocket moves
        }
     }
 }

@@ -1,11 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This is a rocket ship which is the main character of the game.
- * The player will be controling this object.
+ * Rocket is the main actor that is controlled by the user
  * 
- * @author Elsa 
- * @version December 8th 2020
+ * @author Elsa Ahmed 
+ * @version December 2020
  */
 public class RocketShip extends Actor
 {
@@ -20,8 +19,7 @@ public class RocketShip extends Actor
     final static String KEY_ESCAPE = "escape";    
     
     /**
-     * Act - do whatever the rocketShip wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * User controles the movement of the rocket by certain keys
      */    
     public void act() 
     {
@@ -57,9 +55,7 @@ public class RocketShip extends Actor
     }    
    
     /**
-     * When the rocket has come in contact with the 
-     * metoroid than the object will be removed from the world.
-     * Once object is removed the score will also increase by 1.
+     * check to see if rocket has come into contact with any object
      */
     public void hit()
     {
@@ -68,9 +64,10 @@ public class RocketShip extends Actor
         {
             removeTouching(Meteoroid.class);             
             GreenfootImage crack = new GreenfootImage("images/rocket-cracked" + (hit) + ".png");
-            setImage(crack);
-            //world.test(this.lives-this.hit);
-            Greenfoot.playSound("sounds/rocketExplosion.wav");            
+            setImage(crack); // sets cracked rocket image
+            Greenfoot.playSound("sounds/rocketExplosion.wav"); 
+            
+            //ends the game and plays rocket falling animation
             if(this.hit == world.TOTLIVES-1)
             {                
                 getImage().setTransparency(0);
@@ -80,6 +77,7 @@ public class RocketShip extends Actor
             }
             this.hit++;
         }
+        //updates the bullet total
         if(isTouching(DropAmmo.class))
         {
             removeTouching(DropAmmo.class);
@@ -87,6 +85,9 @@ public class RocketShip extends Actor
         }
     }
     
+    /**
+     *  shoots the bullets from the rocket
+     */
     public void fireBullet()
     {
         MyWorld world = (MyWorld) getWorld();
@@ -95,8 +96,8 @@ public class RocketShip extends Actor
             Bullet bullet = new Bullet(15, getRotation());
             world.addObject(bullet, getX(), getY());
             this.fire=0;
-            world.updateBullets(-1);
-            Greenfoot.playSound("sounds/firebullet.wav");
+            world.updateBullets(-1); //updates the bullets total
+            Greenfoot.playSound("sounds/firebullet.wav"); //plays sound
         }
     }
 }

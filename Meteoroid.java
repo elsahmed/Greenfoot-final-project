@@ -1,23 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * object that is falling from the top of the world.
- * player needs to hit this object to score a point,
- * before object reaches the end of the world screen.
+ * Meteoroids are dropped from the top
  * 
- * @author Elsa 
+ * @author Elsa Ahmed
  * @version December 2020
  */
 public class Meteoroid extends Actor
 {
-    private int speed;
+    private int speed; // speed of fall
+    
+    /**
+     * sets what speed the meteoroid falls
+     */
     public Meteoroid(int speed)
     {
         this.speed = speed;
     }
+    
     /**
-     * Act - do whatever the Meteoroid wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * drops meteoroid and checks to see if game is over
      */    
     public void act() 
     {

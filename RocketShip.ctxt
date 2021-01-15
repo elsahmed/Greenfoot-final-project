@@ -1,12 +1,13 @@
 #BlueJ class context
 comment0.target=RocketShip
-comment0.text=\r\n\ This\ is\ a\ rocket\ ship\ which\ is\ the\ main\ character\ of\ the\ game.\r\n\ The\ player\ will\ be\ controling\ this\ object.\r\n\ \r\n\ @author\ Elsa\ \r\n\ @version\ December\ 8th\ 2020\r\n
+comment0.text=\r\n\ Rocket\ is\ the\ main\ actor\ that\ is\ controlled\ by\ the\ user\r\n\ \r\n\ @author\ Elsa\ Ahmed\ \r\n\ @version\ December\ 2020\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ rocketShip\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ User\ controles\ the\ movement\ of\ the\ rocket\ by\ certain\ keys\r\n
 comment2.params=
 comment2.target=void\ hit()
-comment2.text=\r\n\ When\ the\ rocket\ has\ come\ in\ contact\ with\ the\ \r\n\ metoroid\ than\ the\ object\ will\ be\ removed\ from\ the\ world.\r\n\ Once\ object\ is\ removed\ the\ score\ will\ also\ increase\ by\ 1.\r\n
+comment2.text=\r\n\ check\ to\ see\ if\ rocket\ has\ come\ into\ contact\ with\ any\ object\r\n
 comment3.params=
 comment3.target=void\ fireBullet()
+comment3.text=\r\n\ \ shoots\ the\ bullets\ from\ the\ rocket\r\n
 numComments=4

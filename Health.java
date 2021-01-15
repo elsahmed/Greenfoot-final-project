@@ -1,15 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Health here.
+ * Display the number of live the rocket has left
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed
+ * @version December 2020
  */
 public class Health extends Actor
 {
     GreenfootImage heart = new GreenfootImage("images/rocket.png"); 
     private int liveID;
+    /**
+     * Health class contructor sets id number of live
+     */
     public Health(int liveID)
     {
         this.liveID = liveID;
@@ -17,16 +20,15 @@ public class Health extends Actor
         setImage(heart);
         heart.scale(50,30);        
     }
-    /**
-     * Act - do whatever the Health wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     public void act() 
     {
-        // Add your action code here. getX(), getY()
         updateLive();        
     }  
     
+    /**
+     * updates the number of lives to be displayed
+     */
     public void updateLive()
     {                        
         //int lives = hit;

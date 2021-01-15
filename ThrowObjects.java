@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ThrowMeteoroids here.
+ * Throws objects from top of the screen at random y postions and drop-speed
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed
+ * @version Demember 2020
  */
 public class ThrowObjects extends Actor
 {
@@ -13,28 +13,34 @@ public class ThrowObjects extends Actor
     int pause = 0;
     int speed; 
 
+    /**
+     * contrustor of ThrowObjects class sets value of speed to send down multiple objects
+     */
     public ThrowObjects(int speed)
     {
         this.speed = speed;
     }
     
+    /**
+     * contrustor of ThrowObjects class speed value set for 100
+     */
     public ThrowObjects()
     {
         this.speed = 100;
     }
     
     /**
-     * Act - do whatever the ThrowMeteoroids wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Objects are droped at random depending on the levels
      */
     public void act() 
     {
-        // Add your action code here.
-        MyWorld world = (MyWorld) getWorld();        
+        MyWorld world = (MyWorld) getWorld(); 
+        //picks random y position
         if(drop == 0)
         {
             drop = Greenfoot.getRandomNumber(499) + 1;            
         }
+        // drops meteoroids
         if(pause % speed == 0)
         {
             int x = Greenfoot.getRandomNumber(900);            
@@ -45,6 +51,7 @@ public class ThrowObjects extends Actor
             }
             pause = 0;
         }
+        // drops extra ammo
         if(ammoDropDelay % drop == 0 )
         {
             int x1 = Greenfoot.getRandomNumber(900);
@@ -56,6 +63,9 @@ public class ThrowObjects extends Actor
         ammoDropDelay++;
     }  
     
+    /**
+     * creates meteoroid at the given set position
+     */
     public void createMeteoroid(int x, int y)
     {
         MyWorld world = (MyWorld) getWorld();
@@ -63,6 +73,9 @@ public class ThrowObjects extends Actor
         world.addObject(meteoroid, x, y);
     }
     
+    /**
+     *  creates ammo at the given set position
+     */
     public void dropAmmo(int x, int y)
     {
         DropAmmo ammo = new DropAmmo();

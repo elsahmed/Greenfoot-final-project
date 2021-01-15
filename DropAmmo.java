@@ -1,27 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DropAmmo here.
+ * Increases total bullet ammo in rocket
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed 
+ * @version December 2020
  */
 public class DropAmmo extends Actor
 {
-    GreenfootImage image = new GreenfootImage("images/gold-ball.png");
+    GreenfootImage image = new GreenfootImage("images/gold-ball.png"); //image of gold ball
+    /**
+     *  contructor for DropAmmo class
+     */
     public DropAmmo()
     {
-        setImage(image);
-        image.scale(35,35);
+        setImage(image); //sets image
+        image.scale(35,35); //image size
     }
     /**
-     * Act - do whatever the DropAmmo wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * falls down from top of the screen at random y position
      */
     public void act() 
     {
-        // Add your action code here.
         MyWorld world = (MyWorld) getWorld();
+        //ammo falls from top of screen
         if (!world.isGameOver()) 
         {
             int x = getX();

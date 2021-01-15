@@ -1,17 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Instructions on how to play the game
+ * Instructions on how to play the game, includes what key actions and game rules
  * 
- * @author Elsa 
+ * @author Elsa Ahmed
  * @version December 2020
  */
 public class Instructions extends World
 {
-
     /**
-     * Constructor for objects of class Instructions.
-     * 
+     * Constructor for Instructions class.
      */
     public Instructions()
     {    
@@ -54,8 +52,8 @@ public class Instructions extends World
         addObject(s10, 342, 520);
         */
        
-       Label start = new Label("Press [space] to start the game", 35);
-       start.setFillColor(Color.YELLOW);
-       addObject(start, 500, 550);
+        Label start = new Label("Press [space] to start the game", 35);
+        start.setFillColor(Color.YELLOW);
+        addObject(start, 500, 550);
     }
 }

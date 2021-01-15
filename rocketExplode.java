@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class rocketExplode here.
+ * Rocket after destroyed animation
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elsa Ahmed 
+ * @version January 2021
  */
 public class rocketExplode extends Actor
 {
@@ -15,6 +15,9 @@ public class rocketExplode extends Actor
     private boolean exploded = false;
     private int fallRotation = 15;
     
+    /**
+     * constructor for rocketExplode
+     */
     public rocketExplode(int fallSpeed)
     {
         this.fallSpeed = fallSpeed;
@@ -22,35 +25,31 @@ public class rocketExplode extends Actor
     }
     
     /**
-     * Act - do whatever the rocketExplode wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * animates the rocket falling once lives are over
      */
     public void act() 
     {
-        if (delay >=0) {
-            delay--;
-        }
-        else if ( !this.exploded){
-            MyWorld world = (MyWorld) getWorld();
-        
+        if (delay >=0) 
+        {
+            delay--; // delay in between the rocket spinning
+        } 
+        else if (!this.exploded)
+        {
+            //movement and rotation of rocket falling
+            MyWorld world = (MyWorld) getWorld();        
             turn(this.fallRotation);
             int x = getX();
             int y = getY()+this.fallSpeed;
-            setLocation(x, y);
-            
+            setLocation(x, y);            
             if(y > world.getHeight()-5)
             {
+                // rocket hits end of screen
                 Greenfoot.playSound("sounds/rocketExplosion2.wav");
                 this.exploded =true;
                 getImage().setTransparency(0);
-                world.getBackground().drawImage(destroy,x-50, world.getHeight()-50);
-                //setImage(destroy);
-                
-                //world.removeObject(this);                
-            }
-            
-            delay =2;
-        }
-        
+                world.getBackground().drawImage(destroy,x-50, world.getHeight()-50); //sets destroyed image               
+            }            
+            delay=2;
+        }        
     }    
 }
