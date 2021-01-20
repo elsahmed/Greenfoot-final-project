@@ -21,6 +21,7 @@ public class MyWorld extends World
     protected Label test;
     private ThrowObjects throwM;  
     public RocketShip rocket;
+    //GreenfootImage background = new GreenfootImage("images/space-planet.png");     
     
     /**
      * Constructor for MyWorld class.
@@ -28,6 +29,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         super(1000, 600, 1); 
+        //setImage(background);
         //RocketShip 
         rocket = new RocketShip();
         addObject(rocket, 500, 300);        

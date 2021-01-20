@@ -6,5 +6,5 @@ comment1.target=rocketExplode(int)
 comment1.text=\r\n\ constructor\ for\ rocketExplode\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ an\r\n
+comment2.text=\r\n\ animates\ the\ rocket\ falling\ once\ lives\ are\ over\r\n
 numComments=3
